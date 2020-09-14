@@ -25,7 +25,7 @@ var getUserRepos = function(user){
 
     //make a request to the url
     fetch(apiUrl)
-    
+
     // finds its destination URL and attempt to get the data in question, which would return the .then() method, or it fails and goes to .catch()
     .then(function(response){
 
@@ -63,8 +63,9 @@ var displayRepos = function(repos, searchTerm){
         var repoName = repos[i].owner.login + "/" + repos[i].name;
 
         // create a container for each repo
-        var repoEl = document.createElement("div");
+        var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
 
         // create a span element to hold the repo name
         var titleEl = document.createElement("span");
